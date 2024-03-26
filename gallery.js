@@ -28,3 +28,24 @@ function upDate(previewPic){
     */
 		
 	}
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get all elements with the class "preview"
+        var previewImages = document.querySelectorAll(".preview");
+      
+        // Iterate through each preview image to add tabIndex attribute and focus/blur events
+        previewImages.forEach(function(previewImage) {
+          previewImage.setAttribute("tabIndex", "0"); // Add tabIndex attribute
+      
+          // Add focus event
+          previewImage.addEventListener("focus", function() {
+            upDate(previewImage);
+          });
+      
+          // Add blur event
+          previewImage.addEventListener("blur", function() {
+            unDo();
+          });
+        });
+      });
+      
